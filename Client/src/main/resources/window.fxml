@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ru.slukin.chat.client.controllers.ChatController">
+    <HBox fx:id="loginPanel">
+        <TextField fx:id="loginField" onAction="#tryToAuth" promptText="Логин" HBox.hgrow="ALWAYS"/>
+        <PasswordField fx:id="passwordField" onAction="#tryToAuth" promptText="Пароль"/>
+        <Button maxWidth="150" minWidth="150" onAction="#tryToAuth" prefWidth="150" text="Войти"/>
+        <Button maxWidth="150" minWidth="150" onAction="#tryToReg" prefWidth="150" text="Зарегистрироваться"/>
+    </HBox>
+    <HBox VBox.vgrow="ALWAYS">
+        <TextArea fx:id="textArea" editable="false" prefWidth="478.0" wrapText="true" HBox.hgrow="ALWAYS"
+                  VBox.vgrow="ALWAYS"/>
+        <VBox fx:id="rightPanel">
+            <Button maxWidth="150" minWidth="150" onAction="#logout" prefWidth="150" text="Выйти"/>
+            <ListView fx:id="clientList" maxWidth="150" minWidth="150" onMouseReleased="#clientListMouseAction"
+                      prefWidth="150"/>
+            <TextField fx:id="textField" editable="false" focusTraversable="false"/>
+        </VBox>
+    </HBox>
+    <HBox fx:id="messagePanel">
+        <TextField fx:id="messageField" onAction="#sendMessage" promptText="Введите сообщение..." HBox.hgrow="ALWAYS"/>
+        <Button maxWidth="150" minWidth="150" onAction="#sendMessage" prefWidth="150" text="Отправить"/>
+    </HBox>
+</VBox>
